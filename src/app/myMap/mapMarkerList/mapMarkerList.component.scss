@@ -1,0 +1,121 @@
+.map-marker-list{
+    overflow: auto;
+    padding-bottom: 10px;
+    border-left: 1px solid #dadada;
+    box-shadow: 0 0 10px #dadada;
+    .add-marker-btn{
+        margin: 15px;
+        .btn{
+            width: 100%;
+        }
+    }
+    .marker-list{
+        height: calc(100vh - 110px);
+        overflow-y: auto;
+        ul{
+            li{
+                display: flex;
+                padding-left: 15px;
+                font-size: 14px;
+                line-height: 34px;
+                cursor: pointer;
+
+                &:hover,
+                &.selected{
+                    background-color: #f5f6f7;
+
+                    svg{
+                        flex: 0 0 28px;
+                        margin-left: -2px;
+                    }
+                    svg path {
+                        fill: #1976d2;
+                    }
+                    span.marker-lat{
+                        color: #1976d2;
+                    }
+                }
+                svg{
+                    flex: 0 0 24px;
+                    height: 34px;
+                    transition: flex .2s, margin-left .2s;
+                }
+                span.marker-lat{
+                    flex: 1;
+                    margin-left: 5px;
+                }
+            }
+        }
+        .no-marker{
+            font-size: 12px;
+            color: #999;
+            text-indent: 2em;
+            font-style: oblique;
+        }
+    }
+    .file-upload{
+        position: relative;
+        height: 32px;
+        .btn{
+            margin-left: 15px;
+            font-size: 12px;
+        }
+        .upload-input{
+            position: absolute;
+            left: 15px;
+            top: 0;
+            line-height: 26px;
+            font-size: 21px;
+            color: #999;
+            opacity: 0;
+        }
+        .file-name{
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 12px;
+        }
+    }
+}
+.loading,
+.parse-file,
+.is-parsing-file{
+    position: relative;
+    
+}
+.loading::after,
+.is-parsing-file::after{
+    position: absolute;
+    right: -18px;//25%;
+    top: 2px;//30%;
+    content: '';
+    width: 16px;
+    height: 16px;
+    animation: mLoading 1s linear 0s infinite;
+    -webkit-animation: mLoading 1s linear 0s infinite;
+    background: url('../../../assets/svg/loading.svg');
+}
+.parse-file svg{
+    position: absolute;
+    right: -18px;//25%;
+    top: 1px;
+    width: 16px;
+    height: 16px;
+    animation: mLoading 1s linear 0s infinite;
+    -webkit-animation: mLoading 1s linear 0s infinite;
+}
+@keyframes mLoading{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes mLoading{
+    0%{
+        -webkit-transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
+}

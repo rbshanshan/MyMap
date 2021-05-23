@@ -1,0 +1,13 @@
+.my-map-container{
+    display: flex;
+    height: calc(100vh);
+    .main{
+        position: relative;
+        flex: 0 0 75%;
+        height: 100%;
+    }
+    .side{
+        flex: 0 0 25%;
+        height: 100%;
+    }
+}
